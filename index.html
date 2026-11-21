@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Мой сайт</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #111;
+    color: white;
+    text-align: center;
+}
+
+header {
+    background: #222;
+    padding: 20px;
+}
+
+nav button {
+    background: #673de6;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    background: #9272ff;
+    transform: scale(1.1);
+}
+
+.page {
+    display: none;
+    padding: 50px 20px;
+    animation: appear 0.5s;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    background: #222;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #673de6;
+}
+
+a {
+    color: #a58aff;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Мой сайт 🚀</h1>
+    <nav>
+        <button onclick="showPage('home')">Главная</button>
+        <button onclick="showPage('about')">О нас</button>
+        <button onclick="showPage('contact')">Контакты</button>
+    </nav>
+</header>
+
+<div id="home" class="page active">
+    <div class="card">
+        <h2>Главная страница</h2>
+        <p>Добро пожаловать на мой сайт!</p>
+        <button onclick="showPage('about')">Узнать больше</button>
+    </div>
+</div>
+
+<div id="about" class="page">
+    <div class="card">
+        <h2>О нас</h2>
+        <p>Это небольшой сайт с анимациями и кнопками.</p>
+        <button onclick="showPage('contact')">Дальше</button>
+    </div>
+</div>
+
+<div id="contact" class="page">
+    <div class="card">
+        <h2>Контакты</h2>
+        <p>Почта: example@mail.com</p>
+        <button onclick="showPage('home')">На главную</button>
+    </div>
+</div>
+
+<script>
+function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+    });
+
+    document.getElementById(page).classList.add('active');
+}
+</script>
+
+</body>
+</html>
